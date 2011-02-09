@@ -25,7 +25,7 @@
   	</p>
 	<p>
 		<%= f.label :care_setting %><br />
-		<%= collection_select(:encounter, :id, @cs, :code, :name, {:prompt => "Select a care setting"}, {"class" => "required"} ) %>
+		<%= collection_select(:encounter, :id, @cs, :code, :name, {:prompt => "Select a care setting"}, {"class" => "required", "tabindex" => "11"} ) %>
 	</p>
   	<p>
     	<%= f.label :Clinic %><br />
@@ -44,25 +44,25 @@
     	<%= f.text_field :patient_id, :size=>15, :class=>'ui-widget ui-widget-content outline1 required', :tabindex=>33  %>
 	</p>
 	<p>
-	    <%= f.label(:dob, "Date of Birth") %><br />
-    	<%= f.text_field :dob, :size=>10, :value => Time.now.strftime("%m/%d/%Y"), :class => 'datepicker ui-widget ui-widget-content outline1 required date', :tabindex=>40  %>
+	    <%= f.label(:age, "Age") %><br />
+    	<%= f.text_field :age, :size=>10, :value => Time.now.strftime("%m/%d/%Y"), :class => 'ui-widget ui-widget-content outline1 required', :tabindex=>40  %>
 	</p>
 	<p>
     	<%= f.label :gender %><br />
-   	 	<%= select( "encounter", "gender", { "Male" => "M", "Female" => "F", "Other" => "O" }) %>
+   	 	<%= select( "encounter", "gender", { "Male" => "M", "Female" => "F", "Other" => "O" }, {}, {"tabindex" => "41"}) %>
 	</p> 
 	
 	<div style="clear:both"></div>
 	
 	<p>
 		<%= f.label :patient_history %><br />
-	  	<%= check_box 'hx', 'P'  %> Performed
-	  	<%= check_box 'hx', 'O'  %> Observed
+	  	<%= check_box 'hx', 'P', {"tabindex" => "42"} %> Performed
+	  	<%= check_box 'hx', 'O', {"tabindex" => "43"} %> Observed
 	</p>
 	<p>
 		<%= f.label :physical_exam %><br />
-	  	<%= check_box 'px', 'P'  %> Performed
-	  	<%= check_box 'px', 'O'  %> Observed
+	  	<%= check_box 'px', 'P', {"tabindex" => "44"}  %> Performed
+	  	<%= check_box 'px', 'O', {"tabindex" => "45"} %> Observed
 	</p>
 	
 	<div style="clear:both"></div>
@@ -98,7 +98,7 @@
 </fieldset>
 
 <fieldset class="outline2 bg5" style="background-color: #FFF; border: 0; float: right;">
-    	<a class="ui-corner-all bt3 submit_encounter" href="#">Save</a>
+    	<a class="ui-corner-all bt3 submit_encounter" href="#" tabindex="500">Save</a>
  		<%= link_to "Cancel and Return", encounters_path, :class => 'ui-corner-all bt3' %>
 </fieldset>
 

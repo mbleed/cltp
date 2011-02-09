@@ -15,7 +15,6 @@
 
 <div style="clear:both"></div>
 
-
 <fieldset class="outline2 bg5">
   	<p>
     	<%= f.label :encounter_date %><br />
@@ -39,28 +38,15 @@
 	    <span id="patient_id" name="patient_id"><%=h @encounter.patient_id %></span>
 	</p>
 	<p>
-	    <%= f.label(:dob, "Date of Birth") %>
+	    <%= f.label(:age, "Age") %>
 	    <br />
-	    <span id="dob" name="dob"><%=h @encounter.dob.strftime("%B %d, %Y") %></span>
+	    <span id="age" name="age"><%=h @encounter.age %></span>
 	</p>
 <% else %>
 	<p>
-	    <%= f.label(:dob, "Age") %>
+	    <%= f.label(:age, "Age") %>
 	    <br />
-	    <span id="dob" name="dob">
-	    <% days = @encounter.encounter_date.to_date - @encounter.dob.to_date
-	    	case days
-	    		when -9999..-1		: age = "Invalid birth date"
-			 	when 0..31				: age = "0 - 1 month old"
-			  	when 32..365 			: age = "1 month - 1 year old"
-			  	when 366..1827   	: age = "1 - 5 years old"
-			  	when 1828..4383  	: age = "6 - 12 years old"
-			  	when 4384..6574	: age = "13 - 18 years old"
-			  	when 6575..8401	: age = "19 - 23 years old"
-			  	when 8402..99999	: age = "> 23 years old"
-			end
-	    %><%= age %>
-	    </span>
+	    <span id="age" name="age"><%=h @encounter.age %></span>
 	</p>
 <% end %>
 	<p>
